@@ -28,12 +28,7 @@
 Выполните в терминале:
 
 ```bash
-docker run --name academy-postgres \
-  -e POSTGRES_PASSWORD=ваш_пароль \
-  -e POSTGRES_USER=имя_пользователя \
-  -e POSTGRES_DB=academy \
-  -p 5432:5432 \
-  -d postgres
+docker run --name academy-postgres -e POSTGRES_PASSWORD=ваш_пароль -e POSTGRES_USER=имя_пользователя -e POSTGRES_DB=academy -p 5432:5432 -d postgres
 ```
 
 📌 После запуска база данных academy будет готова к использованию, порт 5432 проброшен, логин/пароль: postgres.
@@ -43,14 +38,14 @@ docker run --name academy-postgres \
 
 ```bash
 git clone https://github.com/azaliya-b/postgresQA.git
-cd academy-database
+cd postgresQA
 ```
 
 📂 Шаг 3: Копирование SQL-скриптов в контейнер
 Копируйте все нужные скрипты в контейнер. Например:
 
 ```bash
-docker cp schema.sql academy-postgres:/schema.sql
+docker cp schema.sql academy-postgres:/create_tables.sql
 docker cp insert_data.sql academy-postgres:/insert_data.sql
 docker cp query_students_no_exams.sql academy-postgres:/query_students_no_exams.sql
 docker cp query_students_exam_count.sql academy-postgres:/query_students_exam_count.sql
@@ -71,16 +66,12 @@ docker exec -it academy-postgres psql -U postgres -d academy
 \i /query_students_exam_count.sql
 \i /query_courses_avg_score.sql
 ```
-Чтобы наполняет таблицы произвольными данными (с помощью generate_data.py) выполнить:
+Чтобы заполнить таблицы произвольными данными(с помощью generate_data.py) выполнить:
 
 ```sql
 pip install faker psycopg2-binary
 
-python generate_data.py \
-  --dbname=academy \
-  --user=postgres \
-  --password=postgres \
-  --host=localhost
+python generate_data.py --dbname=academy --user=postgres --password=postgres --host=localhost
 ```
 Выход из psql:
 ```sql
