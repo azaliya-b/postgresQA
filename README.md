@@ -75,7 +75,12 @@ docker exec -it academy-postgres psql -U postgres -d academy
 
 ```sql
 pip install faker psycopg2-binary
-python generate_data.py
+
+python generate_data.py \
+  --dbname=academy \
+  --user=postgres \
+  --password=postgres \
+  --host=localhost
 ```
 Выход из psql:
 ```sql
@@ -95,6 +100,7 @@ docker rm academy-postgres
 
 📂 Структура проекта
 
+```bash
 academy-db/
 ├── Create QA_Strategy_PostgresPro.md    -- Задание по теории тестирования
 ├── create_tables.sql                    -- Скрипт создания таблиц
@@ -104,3 +110,4 @@ academy-db/
 ├── query_courses_avg_score.sql          -- SQL-запрос, который возвращает список курсов со средним баллом по экзамену
 ├── generate_data.py                     -- Скрипт генерации данных
 └── README.md                            -- Описание проекта (этот файл)
+```
