@@ -60,11 +60,11 @@ docker exec -it academy-postgres psql -U postgres -d academy
 Затем по очереди выполните скрипты:
 
 ```sql
-\i /schema.sql
-\i /insert_data.sql
-\i /query_students_no_exams.sql
-\i /query_students_exam_count.sql
-\i /query_courses_avg_score.sql
+\i schema.sql
+\i insert_data.sql
+\i query_students_no_exams.sql
+\i query_students_exam_count.sql
+\i query_courses_avg_score.sql
 ```
 Чтобы заполнить таблицы произвольными данными(с помощью generate_data.py) выполнить:
 
