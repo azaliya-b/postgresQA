@@ -66,17 +66,19 @@ docker exec -it academy-postgres psql -U postgres -d academy
 \i query_students_exam_count.sql
 \i query_courses_avg_score.sql
 ```
+Выход из psql:
+
+```sql
+\q
+```
 Чтобы заполнить таблицы произвольными данными(с помощью generate_data.py) выполнить:
 
 ```sql
 pip install faker psycopg2-binary
 
-python generate_data.py --dbname=academy --user=postgres --password=postgres --host=localhost
+python generate_data.py --dbname=academy --user=имя_пользователя --password=ваш_пароль --host=localhost
 ```
-Выход из psql:
-```sql
-\q
-```
+
 🧼 Остановка и удаление контейнера
 Остановить PostgreSQL:
 
