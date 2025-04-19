@@ -2,7 +2,7 @@
 CREATE TABLE Students (
     s_id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    start_year INT CHECK (start_year >= 2000 AND start_year <= 2100)
+    start_year INT CHECK (start_year >= 2000 AND start_year <= EXTRACT(YEAR FROM CURRENT_DATE))
 );
 
 CREATE TABLE Courses (
