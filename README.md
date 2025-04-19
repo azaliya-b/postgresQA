@@ -42,7 +42,7 @@ docker run --name academy-postgres \
 Склонируйте репозиторий с заданиями:
 
 ```bash
-git clone https://github.com/your-username/academy-database.git
+git clone [https://github.com/your-username/academy-database.git](https://github.com/azaliya-b/postgresQA.git)
 cd academy-database
 ```
 
